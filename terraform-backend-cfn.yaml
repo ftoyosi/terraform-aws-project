@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create a Terraform backend S3 bucket with an alias in the name
+
+Parameters:
+  AliasParameter:
+    Type: String
+    Description: Your alias to include in the S3 bucket name
+    AllowedPattern: "[a-z]+"
+    ConstraintDescription: Must contain only lowercase letters
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 
+        Fn::Sub:
+          - "terraform-backend-dob-${Alias}"
+          - Alias: !Ref AliasParameter
+
+Outputs:
+  TerraformBackendBucketName:
+    Description: S3 Bucket name for the Terraform backend
+    Value: !Ref S3Bucket
