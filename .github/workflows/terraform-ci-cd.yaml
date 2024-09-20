@@ -29,8 +29,8 @@ jobs:
         aws-region: eu-central-1
 
     # Hands-on 3: Add a step to Setup terraform on the GitHub Runner using this action https://github.com/hashicorp/setup-terraform
-    steps:
-    - uses: hashicorp/setup-terraform@v3
+    - name: Setting up terraform 
+      uses: hashicorp/setup-terraform@v3
 
     # Terraform init to download providers/modules and connect to backend
     - name: Terraform Init
@@ -68,8 +68,8 @@ jobs:
         aws-region: eu-central-1
 
     ## TODO: Hands-on 3: Add a step to Setup terraform on the GitHub Runner using this action https://github.com/hashicorp/setup-terraform
-    steps:
-    - uses: hashicorp/setup-terraform@v3
+    - name: Setting up terraform 
+      uses: hashicorp/setup-terraform@v3
 
     # Terraform init to download providers/modules and connect to backend
     - name: Terraform Init
